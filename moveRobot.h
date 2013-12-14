@@ -24,6 +24,8 @@ void leftTurn();
 
 void rightTurn();
 
+void leftHairpin();
+
 void moveForward();
 
 void moveBackward();

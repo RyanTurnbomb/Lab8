@@ -46,7 +46,8 @@ void timersConfig() {
 }
 
 void leftMotorForward() {
-	TA0CCR1 = 50;
+	TA0CCR1 = 75
+		;
 	TA0CCTL0 = OUTMOD_5;
 }
 
@@ -70,6 +71,13 @@ void leftTurn() {
 	rightMotorForward();
 }
 
+void leftHairpin() {
+	TA0CCR1 = 35;
+	TA0CCTL0 = OUTMOD_5;
+	TA1CCR1 = 0;
+	TA1CCTL0 = OUTMOD_4;
+}
+
 void rightTurn() {
 	leftMotorForward();
 	rightMotorBackward();
@@ -85,6 +93,6 @@ void moveBackward() {
 	rightMotorBackward();
 }
 
-void pause(){
+void pause() {
 
 }

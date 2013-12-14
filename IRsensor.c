@@ -27,7 +27,7 @@ unsigned int getLeft() {
 unsigned int getCenter() {
 	ADC10CTL0 &= ~ENC;
 	ADC10CTL1 &= ~(INCH3 | INCH2 | INCH1 | INCH0);
-	ADC10CTL1 |= INCH_5;
+	ADC10CTL1 |= INCH_4;
 	ADC10CTL0 |= ENC + ADC10SC;
 	__bis_SR_register(CPUOFF + GIE);
 
@@ -37,7 +37,7 @@ unsigned int getCenter() {
 unsigned int getRight() {
 	ADC10CTL0 &= ~ENC;
 	ADC10CTL1 &= ~(INCH3 | INCH2 | INCH1 | INCH0);
-	ADC10CTL1 |= INCH_4;
+	ADC10CTL1 |= INCH_5;
 	ADC10CTL0 |= ENC + ADC10SC;
 	__bis_SR_register(CPUOFF + GIE);
 

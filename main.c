@@ -8,13 +8,26 @@
 int main(void) {
 	WDTCTL = WDTPW | WDTHOLD;	// Stop watchdog timer
 
+	initADC10();
+
+	initPinOuts();
+	timersConfig();
+
 	for (;;) {
-		getLeft();
-		if (ADC10MEM < 0x250)
-			rightMotorForward();
-		else
-			leftMotorForward();
-		__delay_cycles(500);
+		if (getCenter() > 0x22A) {
+			rightTurn();
+			_delay_cycles(20000);
+		} else if (getLeft() > 0x3A0) {
+			rightTurn();
+			_delay_cycles(5000);
+		} else if (getLeft() < 0x199) {
+			leftHairpin();
+			_delay_cycles(3000);
+		} else {
+			moveForward();
+			_delay_cycles(1000);
+		}
+
 	}
 
 	return 0;
